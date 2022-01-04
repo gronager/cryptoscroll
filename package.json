@@ -1,0 +1,21 @@
+{
+  "name": "canvas-2d-starter",
+  "version": "1.0.0",
+  "description": "In draw.js, export a function named draw to be called per frame and a function named once, to be called on start-up.\n\nRespects the viewport dimensions and device pixel ratio.\n\nDoesn't bug out on broken code in the rAF loop.",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": [
+    "creative coding",
+    "javascript",
+    "canvas",
+    "visualisation"
+  ]
+}
