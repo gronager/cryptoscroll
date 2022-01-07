@@ -1,5 +1,8 @@
 const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
+function abbreviate(name) {
+  return name.substring(0, 7)+ ".." + name.substring(name.length - 2);
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -117,7 +120,7 @@ class Chronos {
     }
     const time = getRandomInt(1231006505000, Date.now());
     // pick 1-7 random entities
-    const n = getRandomInt(1, Math.max(7, this.entities.length));
+    const n = getRandomInt(1, Math.min(7, this.entities.length));
     const entities = new Set();
     for (i = 0; i < n; i++) {
       entities.add(getRandomInt(0, this.entities.length));
@@ -196,8 +199,6 @@ class Chronos {
     }
     ctx.lineWidth = 1.5;
     ctx.stroke(events);
-    //ctx.fill(events);
-
   }
   tap(ctx, pos) {
     
@@ -207,10 +208,6 @@ class Chronos {
 const time_axis = {
   
 };
-
-function abbreviate(name) {
-  return name.substring(0, 6)+ ".." + name.substring(name.length - 3);
-}
 
 const root = new Group();
 
@@ -229,8 +226,6 @@ for (let i = 0; i < 45; i++) {
 }
 
 root.add(chronos);
-
-chronos.offset = -321;
 
 function draw() {
   ctx.fillStyle = 'white';
